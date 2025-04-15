@@ -1,23 +1,4 @@
-import {useState} from "react";
-import {calculateInvestmentResults} from "../util/investment.ts";
-
-export default function UserInput() {
-    const [investment, setInvestment] = useState({
-        initialInvestment: 1000,
-        annualInvestment: 1200,
-        expectedReturn: 6,
-        duration: 10
-    });
-
-    function handleChange(inputIdentifier, newValue) {
-        setInvestment(prevUserInput => {
-            return {
-                ...prevUserInput,
-                [inputIdentifier]: newValue,
-            }
-        })
-        console.log(calculateInvestmentResults(event.target.value));
-    }
+export default function UserInput({ onChange , input}) {
 
     return (
         <section id="user-input" className="grid grid-cols-2 gap-6">
@@ -25,9 +6,9 @@ export default function UserInput() {
                 <label>Initial investment</label>
                 <input
                     type="number"
-                    value={investment.initialInvestment}
+                    value={input.initialInvestment}
                     onChange={
-                        (event) => handleChange('initialInvestment', event.target.value)
+                        (event) => onChange('initialInvestment', event.target.value)
                     }
                 />
             </div>
@@ -35,9 +16,9 @@ export default function UserInput() {
                 <label>Annual Investment</label>
                 <input
                     type="number"
-                    value={investment.annualInvestment}
+                    value={input.annualInvestment}
                     onChange={
-                        (event) => handleChange('annualInvestment', event.target.value)
+                        (event) => onChange('annualInvestment', event.target.value)
                     }
                 />
             </div>
@@ -45,9 +26,9 @@ export default function UserInput() {
                 <label>Expected Return</label>
                 <input
                     type="number"
-                    value={investment.expectedReturn}
+                    value={input.expectedReturn}
                     onChange={
-                        (event) => handleChange('expectedReturn', event.target.value)
+                        (event) => onChange('expectedReturn', event.target.value)
                     }
                 />
             </div>
@@ -55,9 +36,9 @@ export default function UserInput() {
                 <label>Duration</label>
                 <input
                     type="number"
-                    value={investment.duration}
+                    value={input.duration}
                     onChange={
-                        (event) => handleChange('duration', event.target.value)
+                        (event) => onChange('duration', event.target.value)
                     }
                 />
             </div>
