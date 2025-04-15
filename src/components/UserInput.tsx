@@ -1,7 +1,6 @@
 export default function UserInput({ onChange , input}) {
-
     return (
-        <section id="user-input" className="grid grid-cols-2 gap-6">
+        <section id="user-input" className="grid grid-cols-2 gap-6 !max-w-100">
             <div className="flex flex-col">
                 <label>Initial investment</label>
                 <input

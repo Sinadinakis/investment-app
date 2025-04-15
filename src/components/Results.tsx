@@ -1,11 +1,11 @@
 import {calculateInvestmentResults, formatter} from "../util/investment.ts";
-
+import classes from './Results.module.css';
 export default function Results({ input }) {
     const resultData = calculateInvestmentResults(input);
     const initialInvestment = resultData[0].valueEndOfYear -  resultData[0].interest -  resultData[0].annualInvestment;
 
     return (
-        <table id="result">
+        <table className={classes.result}>
             <thead>
                 <tr>
                     <th>Year</th>
