@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import {styled} from 'styled-components';
 
 const SectionInput = styled.section`
     padding: 1rem;
@@ -21,12 +21,23 @@ const Input = styled.input`
     padding: 0.5rem;
     border: 1px solid #76c0ae;
     border-radius: 0.25rem;
-    background-color: transparent;
-    color: #c2e9e0;
+    background-color: ${({invalid}) => {
+        return invalid ? '#A52A2A' : 'transparent';
+    }};
+    color: '#c2e9e0';
     font-size: 1rem;
 `
 
-export default function UserInput({ onChange , input}) {
+export default function UserInput({onChange, isValid, input}: {
+    onChange: any,
+    isValid: boolean,
+    input: {
+        initialInvestment: number,
+        annualInvestment: number,
+        expectedReturn: number,
+        duration: number
+    }
+}) {
     return (
         <SectionInput className='grid grid-cols-2 gap-6 max-w-100'>
             <div className="flex flex-col">
@@ -64,6 +75,7 @@ export default function UserInput({ onChange , input}) {
                 <Input
                     type="number"
                     value={input.duration}
+                    invalid={!isValid}
                     onChange={
                         (event) => onChange('duration', event.target.value)
                     }
