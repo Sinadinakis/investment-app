@@ -1,9 +1,37 @@
+import { styled } from 'styled-components';
+
+const SectionInput = styled.section`
+    padding: 1rem;
+    max-width: 30rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #307e6c, #2b996d);
+`
+const Label = styled.label`
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+`
+
+const Input = styled.input`
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #76c0ae;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    color: #c2e9e0;
+    font-size: 1rem;
+`
+
 export default function UserInput({ onChange , input}) {
     return (
-        <section id="user-input" className="grid grid-cols-2 gap-6 !max-w-100">
+        <SectionInput className='grid grid-cols-2 gap-6 max-w-100'>
             <div className="flex flex-col">
-                <label>Initial investment</label>
-                <input
+                <Label>Initial investment</Label>
+                <Input
                     type="number"
                     value={input.initialInvestment}
                     onChange={
@@ -12,8 +40,8 @@ export default function UserInput({ onChange , input}) {
                 />
             </div>
             <div className="flex flex-col">
-                <label>Annual Investment</label>
-                <input
+                <Label>Annual Investment</Label>
+                <Input
                     type="number"
                     value={input.annualInvestment}
                     onChange={
@@ -22,8 +50,8 @@ export default function UserInput({ onChange , input}) {
                 />
             </div>
             <div className="flex flex-col">
-                <label>Expected Return</label>
-                <input
+                <Label>Expected Return</Label>
+                <Input
                     type="number"
                     value={input.expectedReturn}
                     onChange={
@@ -32,8 +60,8 @@ export default function UserInput({ onChange , input}) {
                 />
             </div>
             <div className="flex flex-col">
-                <label>Duration</label>
-                <input
+                <Label>Duration</Label>
+                <Input
                     type="number"
                     value={input.duration}
                     onChange={
@@ -41,6 +69,6 @@ export default function UserInput({ onChange , input}) {
                     }
                 />
             </div>
-        </section>
+        </SectionInput>
     )
 }

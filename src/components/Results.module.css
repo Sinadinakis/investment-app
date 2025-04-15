@@ -12,7 +12,7 @@
     font-size: 0.85rem;
     color: #83e6c0;
     tr {
-        @apply grid grid-cols-5 gap-10;
+        @apply grid grid-cols-5;
     }
 }
 
@@ -21,6 +21,6 @@
     font-size: 0.85rem;
     color: #c2e9e0;
     tr {
-        @apply grid grid-cols-5 gap-10;
+        @apply grid grid-cols-5;
     }
 }
