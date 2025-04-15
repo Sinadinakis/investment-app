@@ -1,4 +1,5 @@
 import {styled} from 'styled-components';
+import {TypeUserInput} from "../App.tsx";
 
 const SectionInput = styled.section`
     padding: 1rem;
@@ -31,12 +32,7 @@ const Input = styled.input.withConfig({
 `;
 
 export default function UserInput({onChange, isValid, input}: {
-    input: {
-        initialInvestment: number,
-        annualInvestment: number,
-        expectedReturn: number,
-        duration: number
-    },
+    input: TypeUserInput,
     isValid: boolean,
     onChange: (key: string, value: string) => void,
 }) {

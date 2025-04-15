@@ -3,8 +3,14 @@ import UserInput from "./components/UserInput.tsx";
 import Results from "./components/Results.tsx";
 import {useState} from "react";
 
+export type TypeUserInput = {
+    initialInvestment: number,
+    annualInvestment: number,
+    expectedReturn: number,
+    duration: number
+}
 function App() {
-    const [userInput, setUserInput] = useState({
+    const [userInput, setUserInput] = useState<TypeUserInput>({
         initialInvestment: 15000,
         annualInvestment: 1200,
         expectedReturn: 6,
@@ -13,12 +19,7 @@ function App() {
 
     const inputIsValid: boolean = userInput.duration >= 1;
 
-    function handleChange(inputIdentifier: string, newValue: {
-        initialInvestment: number,
-        annualInvestment: number,
-        expectedReturn: number,
-        duration: number
-    }) {
+    function handleChange(inputIdentifier: string, newValue: string) {
         setUserInput(prevUserInput => {
             return {
                 ...prevUserInput,

@@ -1,15 +1,16 @@
-// This function expects a JS object as an argument
 // The object should contain the following properties
 // - initialInvestment: The initial investment amount
 // - annualInvestment: The amount invested every year
 // - expectedReturn: The expected (annual) rate of return
 // - duration: The investment duration (time frame)
+import {TypeUserInput} from "../App.tsx";
+
 export function calculateInvestmentResults({
   initialInvestment,
   annualInvestment,
   expectedReturn,
   duration,
-}) {
+}: TypeUserInput) {
   const annualData = [];
   let investmentValue = initialInvestment;
 
