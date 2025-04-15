@@ -1,5 +1,6 @@
 import {styled} from 'styled-components';
 import {TypeUserInput} from "../App.tsx";
+import CustomInput from './Input.tsx';
 
 const SectionInput = styled.section`
     padding: 1rem;
@@ -8,28 +9,6 @@ const SectionInput = styled.section`
     border-radius: 4px;
     background: linear-gradient(180deg, #307e6c, #2b996d);
 `
-const Label = styled.label`
-    display: block;
-    margin-bottom: 0.25rem;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 0.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-`
-
-const Input = styled.input.withConfig({
-    shouldForwardProp: (prop) => prop !== '$invalid',
-})<{$invalid?: boolean}>`
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #76c0ae;
-    border-radius: 0.25rem;
-    background-color: ${({$invalid}) => {
-        return $invalid ? '#A52A2A' : 'transparent';
-    }};
-    color: '#c2e9e0';
-    font-size: 1rem;
-`;
 
 export default function UserInput({onChange, isValid, input}: {
     input: TypeUserInput,
@@ -39,9 +18,9 @@ export default function UserInput({onChange, isValid, input}: {
     return (
         <SectionInput className='grid grid-cols-2 gap-6 max-w-100'>
             <div className="flex flex-col">
-                <Label>Initial investment</Label>
-                <Input
+                <CustomInput
                     type="number"
+                    label='Initial investment'
                     value={input.initialInvestment}
                     onChange={
                         (event) => onChange('initialInvestment', event.target.value)
@@ -49,9 +28,9 @@ export default function UserInput({onChange, isValid, input}: {
                 />
             </div>
             <div className="flex flex-col">
-                <Label>Annual Investment</Label>
-                <Input
+                <CustomInput
                     type="number"
+                    label='Annual Investment'
                     value={input.annualInvestment}
                     onChange={
                         (event) => onChange('annualInvestment', event.target.value)
@@ -59,9 +38,9 @@ export default function UserInput({onChange, isValid, input}: {
                 />
             </div>
             <div className="flex flex-col">
-                <Label>Expected Return</Label>
-                <Input
+                <CustomInput
                     type="number"
+                    label='Annual Investment'
                     value={input.expectedReturn}
                     onChange={
                         (event) => onChange('expectedReturn', event.target.value)
@@ -69,11 +48,11 @@ export default function UserInput({onChange, isValid, input}: {
                 />
             </div>
             <div className="flex flex-col">
-                <Label>Duration</Label>
-                <Input
+                <CustomInput
                     type="number"
+                    label='Duration'
                     value={input.duration}
-                    $invalid={!isValid}
+                    invalid={!isValid}
                     onChange={
                         (event) => onChange('duration', event.target.value)
                     }
