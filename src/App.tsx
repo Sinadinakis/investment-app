@@ -1,7 +1,8 @@
+import {useState} from "react";
 import Header from "./components/Header.tsx";
 import UserInput from "./components/UserInput.tsx";
 import Results from "./components/Results.tsx";
-import {useState} from "react";
+import UserName from "./components/UserName.tsx";
 
 export type TypeUserInput = {
     initialInvestment: number,
@@ -31,6 +32,7 @@ function App() {
     return (
         <>
             <Header/>
+            <UserName />
             <UserInput
                 input={userInput}
                 isValid={inputIsValid}
